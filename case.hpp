@@ -1,15 +1,18 @@
 #ifndef CASE_HPP
 #define CASE_HPP
 
+#include "solution.hpp"
+
 #include <QObject>
 #include <QRunnable>
 #include <QThread>
 #include <QTextStream>
 #include <QDebug>
 
-class Case : public QObject, public QRunnable
+class Case : public QObject, public QRunnable, public Solution
 {
     Q_OBJECT
+    //friend class CaseManager;
 
 public:
     // ctor & dtor
@@ -17,24 +20,7 @@ public:
 
     void run()
     {
-        //...Your solution code here...
-        {
-            rings_amount = 0;
-
-            for (;;)
-            {
-                qint64 next_paint = (r + 1)*(r + 1) - r*r;
-                if (next_paint > t)
-                    break;
-
-                t -= next_paint;
-                ++rings_amount;
-
-                r += 2;
-            }
-        }
-
-        //QThread::msleep(10);
+        Solution::solve();
 
         solved = true;
         emit caseSolved(this);
@@ -42,16 +28,17 @@ public:
 
     void readInput(QTextStream &in)
     {
-        //...Read input data here...
-        in >> r >> t;
+        // IRL solution can't depend on case number
+        // This is just an example, quite stupid one
+        a = case_number - 1;
+
+        Solution::input(in);
     }
 
     void writeResults(QTextStream &out)
     {
         out << "Case #" << case_number << ": ";
-
-        //...And write your results here...
-        out << rings_amount << "\n";
+        Solution::output(out);
     }
 
     inline bool is_solved() const { return solved; }
@@ -63,11 +50,6 @@ signals:
 private:
     int  case_number;
     bool solved;
-
-    // ...Your problem input here...
-    qint64 r, t;
-    // ...Your results here...
-    int rings_amount;
 };
 
 #endif // CASE_HPP

@@ -22,7 +22,7 @@ public:
 public slots:
     void dispatchCase(Case *cs)
     {
-        qDebug() << "Dispatching" << cs << "now";
+        //qDebug() << "Dispatching" << cs << "now";
 
         // Maybe in the future this class will do
         // something more intellectual than

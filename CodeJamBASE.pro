@@ -17,7 +17,8 @@ TEMPLATE = app
 
 SOURCES += casemanager.cpp main.cpp
 
-HEADERS += case.hpp casemanager.hpp reader.hpp writer.hpp dispatcher.hpp
+HEADERS += case.hpp casemanager.hpp reader.hpp writer.hpp dispatcher.hpp \
+    solution.hpp
 
 OTHER_FILES += \
     input.txt \

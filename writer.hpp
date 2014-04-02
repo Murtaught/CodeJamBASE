@@ -27,6 +27,7 @@ public:
                    "Writer ctor",
                    tr("Couldn't open file \"%1\"!").arg(filename).toUtf8().data()
         );
+        Q_UNUSED(opened)
 
         out.setDevice( &file );
     }
