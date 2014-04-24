@@ -23,3 +23,5 @@ HEADERS += case.hpp casemanager.hpp reader.hpp writer.hpp dispatcher.hpp \
 OTHER_FILES += \
     input.txt \
     output.txt
+
+QMAKE_CXXFLAGS += -std=c++0x

@@ -13,22 +13,20 @@ struct Solution
 
     void solve()
     {
-        ans = a;
-        for (int i = 0; i < 10e7; i++)
-            ans += i;
+
     }
 
     void output(QTextStream &out)
     {
-        out << ans << "\n";
+
+        out << "\n";
     }
 
 protected:
     // input:
-    int a;
 
-    // results:
-    long long ans;
+    // output:
+
 };
 
 #endif // SOLUTION_HPP

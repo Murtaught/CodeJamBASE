@@ -28,10 +28,6 @@ public:
 
     void readInput(QTextStream &in)
     {
-        // IRL solution can't depend on case number
-        // This is just an example, quite stupid one
-        a = case_number - 1;
-
         Solution::input(in);
     }
 
